@@ -16,6 +16,10 @@ function isValid2(val) {
   return val != '' && isValid(val);
 }
 
+function nvl(val, ifnull) {
+  return isValid2(val) ? val : ifnull;
+}
+
 function place(obj, l, t, w, h) {
   if( obj == undefined ) { return; }
 
