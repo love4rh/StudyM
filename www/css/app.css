@@ -112,3 +112,7 @@ textarea { resize: none; }
 .x-list-table { border-collapse:collapse; border-spacing:0; width: 100%; display:table; }
 .x-list-table td { border-bottom: 1px solid #0e1419!important; padding: 5px; }
 .x-list-fix-width { height:40px; overflow:hidden; display:table-cell; vertical-align:middle; }
+
+.x-main-dialog { overflow-y: auto; overflow-x: hidden; }
+
+.x-english,.x-korean { line-height:1.7; }

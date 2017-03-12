@@ -9,10 +9,8 @@ var RT = {
     $.ajax({
       url: dataPath,
       success: function(data) {
-        console.log(data);
-
-        RT.data = data;
-        RT.chapList = data['contents'];
+        RT.data = JSON.parse(data);
+        RT.chapList = RT.data['contents'];
 
         if( isValid(callback) ) { callback(data); }
       },

@@ -26,6 +26,9 @@ var pageMain = {
       {'title':R.text('review'), 'icon':'fa-refresh', 'colorClass':'w3-orange', 'handler': function(){ app.showPage(reviewMgr); } }
     ];
 
+    // margin
+    this.board.append( $('<div></div>').html('&nbsp;') );
+
     this.board.append(uitool.genMenu(menuList));
     this.displayed = true;
   },

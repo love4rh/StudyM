@@ -9,6 +9,7 @@ backup/
 site-release/
 etc/
 plugins/
+hooks/
 
 # Built application files
 *.apk

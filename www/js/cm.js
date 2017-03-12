@@ -20,6 +20,10 @@ function nvl(val, ifnull) {
   return isValid2(val) ? val : ifnull;
 }
 
+function checkCall(f, v) {
+  return isValid(f) ? f(): v;
+}
+
 function place(obj, l, t, w, h) {
   if( obj == undefined ) { return; }
 

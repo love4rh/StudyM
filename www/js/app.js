@@ -1,3 +1,6 @@
+/**
+ * Application Main Class
+ */
 var app = {
   pages: {},
   appBoard: $('#appMain'),
@@ -41,21 +44,26 @@ var app = {
     RT.load('data/sample.json', function(){ app.showPage(pageMain); });
   },
 
+  // returns height of ad's
+  getAdHeight: function() {
+    return isRunningOnBrowser() ? 0 : 50;
+  },
+
+  getHeaderHeight: function() {
+    return 50;
+  },
+
   adjustLayout: function() {
-    const appHeaderHeight = 50;
-    var adHeight = 60;
+    var appHeaderHeight = app.getHeaderHeight();
 
     var w = $(window).width();
     var h = $(window).height();
-
-    // if there isn't any ad,
-    if( isRunningOnBrowser() ) { adHeight = 0; }
 
     // TODO iOS: consider status bar height. adjust header top padding, header height.
 
     place(app.appBoard, undefined, undefined, w, h);
     place(app.header, undefined, undefined, w, appHeaderHeight);
-    place(app.pageBoard, undefined, undefined, w, h - appHeaderHeight - adHeight);
+    place(app.pageBoard, undefined, undefined, w, h - appHeaderHeight - app.getAdHeight());
     // place(app.pageBoard.find('.x-main-view'), undefined, undefined, w, h - appHeaderHeight);
 
     app.pageBoard.css({'position':'relative', 'top':appHeaderHeight + cUnit});
@@ -73,7 +81,7 @@ var app = {
 
   onResume: function(event) {
     app.adjustLayout();
-    setTimeout(function() { showADBanner(); }, 20);
+    setTimeout(function() { admob.showADBanner(); }, 20);
   },
 
   onBackKeyDown: function(event) {
@@ -135,14 +143,14 @@ var app = {
     app.pageBoard.find('.x-main-view').hide();
     app.pageBoard.find('#' + pageID).show();
 
-    if( app.currentPageMgr ) {
+    if( app.currentPageMgr && checkCall(app.currentPageMgr.isHistoric, true) ) {
       app.pageViewStack.push(app.currentPageMgr);
     }
 
     app.currentPageMgr = newMgr;
     app.adjustLayout();
 
-    setTimeout(function() { showADBanner(); }, 20);
+    setTimeout(function() { admob.showADBanner(); }, 20);
   },
 
   switchHeader: function(pageMgr) {

@@ -15,7 +15,7 @@ var uitool = {
       $('<button></button>')
         .addClass('w3-btn w3-round-xlarge w3-large w3-padding-medium ' + nvl(m['colorClass'], '') )
         .css({'width':'100%', 'margin':'12px auto'})
-        .html('<i class="fa ' + m['icon'] + '"></i> ' + m['title'])
+        .html((isValid(m['icon']) ? '<i class="fa ' + m['icon'] + '"></i> ' : '') + m['title'])
         .on('click', m['handler'])
         .appendTo(d)
         ;
