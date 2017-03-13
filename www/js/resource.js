@@ -9,7 +9,12 @@ var RT = {
     $.ajax({
       url: dataPath,
       success: function(data) {
-        RT.data = JSON.parse(data);
+        if( data instanceof Object ) {
+          RT.data = data;
+        } else {
+          RT.data = JSON.parse(data);
+        }
+
         RT.chapList = RT.data['contents'];
 
         if( isValid(callback) ) { callback(data); }
@@ -20,11 +25,22 @@ var RT = {
     });
   },
 
-  sizeOfContents: function() {
+  sizeOfChapter: function() {
     return isValid2(RT.chapList) ? RT.chapList.length : 0;
   },
 
   getContent: function(idx) {
     return RT.chapList[idx];
+  },
+
+  sizeOfDialog: function(idx) {
+    return RT.chapList[idx]['dialog'].length;
+  },
+
+  /**
+   * who:'', english:'', korean:''
+   */
+  getDialog: function(chapIdx, dialogIdx) {
+    return RT.chapList[chapIdx]['dialog'][dialogIdx];
   }
 };

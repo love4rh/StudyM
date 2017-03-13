@@ -19,6 +19,8 @@ var R = {
         'study': '공부하기',
         'test': '테스트하기',
         'review': '복습하기',
+        'testSelect': '테스트할 Chapter를 선택하세요.',
+        'remainTime': '남은 시간',
 
         'hour': '시간',
         'min': '분',
@@ -31,6 +33,8 @@ var R = {
         'study': 'Study',
         'test': 'Test',
         'review': 'Review',
+        'testSelect': 'Select chapter(s) for your test',
+        'remainTime': 'Remain Time',
 
         'hour': 'hour(s)',
         'min': 'minute(s)',

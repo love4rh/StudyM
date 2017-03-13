@@ -25,7 +25,7 @@ var studyMgr = {
 
     var hs = '<table class="x-theme-d3 x-list-table">';
 
-    for(var i = 0; i < RT.sizeOfContents(); ++i) {
+    for(var i = 0; i < RT.sizeOfChapter(); ++i) {
       var ctx = RT.getContent(i);
 
       hs += '<tr data-idx="' + i + '">'
@@ -66,7 +66,7 @@ var studyMgr = {
 
 
 /**
- * detail view
+ * dialog detail view
  */
 var contentsMgr = {
   board: undefined,
@@ -131,8 +131,8 @@ var contentsMgr = {
   },
 
   adjustLayout: function(w, h) {
-    var $this = contentsMgr;
     const buttonHeight = 60;
+    var $this = contentsMgr;
 
     if( !w ) { w = $(window).width(); }
     if( !h ) { h = $(window).height(); }

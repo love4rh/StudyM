@@ -116,3 +116,27 @@ textarea { resize: none; }
 .x-main-dialog { overflow-y: auto; overflow-x: hidden; }
 
 .x-english,.x-korean { line-height:1.7; }
+
+.x-middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.x-chapter {
+  padding-top: 12px;
+  border: 1px solid #000;
+}
+
+.x-test-timer {
+
+}
+
+.x-test-content {
+  margin: 12px;
+  padding: 12px;
+  border: 1px solid #000;
+}

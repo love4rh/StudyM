@@ -39,7 +39,7 @@ var app = {
     // application title
     app.header.find('li:nth-child(2)').html('<span>' + R.text('appTitle') + '<span>');
 
-    app.addPages( [pageMain, studyMgr, testMgr, reviewMgr, contentsMgr] );
+    app.addPages( [pageMain, studyMgr, testMgr, reviewMgr, contentsMgr, testingMgr] );
 
     RT.load('data/sample.json', function(){ app.showPage(pageMain); });
   },
@@ -143,7 +143,7 @@ var app = {
     app.pageBoard.find('.x-main-view').hide();
     app.pageBoard.find('#' + pageID).show();
 
-    if( app.currentPageMgr && checkCall(app.currentPageMgr.isHistoric, true) ) {
+    if( app.currentPageMgr && checkCall(app.currentPageMgr['isHistoric'], true) ) {
       app.pageViewStack.push(app.currentPageMgr);
     }
 
@@ -168,8 +168,11 @@ var app = {
   },
 
   goBack: function() {
-    if( app.pageViewStack.length < 1 ) { return false; }
+    if( app.currentPageMgr && !checkCall(app.currentPageMgr['isPossibleToGoBack'], true) ) {
+      return true;
+    }
 
+    if( app.pageViewStack.length < 1 ) { return false; }
     app.showPage(app.pageViewStack.pop());
 
     return true;
