@@ -1,12 +1,13 @@
 const cUnit = 'px';
 const footerHeight = 48;
 const headerHeight = 46;
-var hmUrl = 'wss://www.tool4.us:9697/hermes';
-
-const remainLimit = 300;  // 5min
 
 var runningOnBrowser = true;
 
+
+function tickCount() {
+  return new Date().getTime();
+}
 
 function isValid(obj) {
   return obj != undefined && obj != null;

@@ -6,6 +6,8 @@ var testingMgr = {
   options: undefined,
   testList: undefined,
   posTest: -1,
+  timer: undefined,
+  remainTime: 10,
 
   initialize: function(board) {
     this.board = board;
@@ -17,7 +19,7 @@ var testingMgr = {
     return {'title':R.text('test'), 'mainButton':'back'};
   },
 
-  isHistoric: function() { return true; },
+  isHistoric: function() { return false; },
 
   // option: 'language':'english', 'selected': [index, ]
   onActivated: function(prevMgr, options) {
@@ -37,12 +39,13 @@ var testingMgr = {
 
     this.board.empty();
 
-    $('<div></div>').addClass('x-test-timer').html(R.text('remainTime') + ': ').appendTo(this.board);
+    $('<div></div>').addClass('w3-center x-text-orange w3-large x-test-timer').html(R.text('remainTime') + ': ').appendTo(this.board);
     $('<div></div>').addClass('x-test-content').text('').appendTo(this.board);
 
     uitool.genMenu([
-      { 'title':'I see', 'colorClass':'w3-teal', 'handler':function() { testingMgr.goNext(true); } }
-    ], true).addClass('x-test-gonext').appendTo(this.board);
+      { 'title':'I see', 'colorClass':'w3-teal', 'handler':testingMgr.pass },
+      { 'title':'Show Answer', 'colorClass':'w3-red', 'handler':testingMgr.fail }
+    ], true).addClass('x-test-go').appendTo(this.board);
 
     this.posTest = -1;
     this.goNext(true);
@@ -54,7 +57,10 @@ var testingMgr = {
   },
 
   onDeactivated: function(activePage) {
-    //
+    if( $this.timer ) {
+      clearInterval($this.timer);
+      $this.timer = undefined;
+    }
   },
 
   adjustLayout: function(w, h) {
@@ -72,7 +78,25 @@ var testingMgr = {
     //
   },
 
-  goNext: function(gotit) {
+  pass: function(event) {
+    var $this = testingMgr;
+    if( $this.posTest >= $this.testList.length ) { return; }
+
+    console.log($this.posTest + ' passed.');
+
+    $this.goNext();
+  },
+
+  fail: function(event) {
+    var $this = testingMgr;
+    if( $this.posTest >= $this.testList.length ) { return; }
+
+    console.log($this.posTest + ' failed.');
+
+    $this.goNext();
+  },
+
+  goNext: function() {
     var $this = testingMgr;
     var curPos = $this.posTest;
 
@@ -80,15 +104,29 @@ var testingMgr = {
       return;
     }
 
-    if( curPos >= 0 ) {
-      // TODO gotit에 따른 기록 남기기
-    }
-
     $this.posTest += 1;
     if( $this.posTest >= $this.testList.length ) {
       // TODO 끝
       alert('테스트 끝');
     }
+
+    //
+    if( $this.timer ) {
+      clearInterval($this.timer);
+      $this.timer = undefined;
+    }
+
+    $this.remainTime = 10;
+    $this.board.find('.x-test-timer').html( R.text('remainTime') + ': 10' + R.text('sec') );
+
+    $this.timer = setInterval(function() {
+      $this.remainTime -= 1;
+      $this.board.find('.x-test-timer').html( R.text('remainTime') + ': ' + $this.remainTime + R.text('sec') );
+
+      if( $this.remainTime <= 0 ) {
+        //
+      }
+    }, 1000);
 
     var idx = this.testList[this.posTest];
     var d = RT.getDialog(idx['chapter'], idx['dialog']);
