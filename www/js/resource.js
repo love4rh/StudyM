@@ -93,7 +93,7 @@ var RT = {
   getPassRateAsHtml: function(chapIdx, dialogIdx, e2k) {
     var rate = RT.getPassRate(chapIdx, dialogIdx, e2k);
 
-    return isValid2(rate) ? '<span class="x-rate"> [' + Math.floor(rate * 100) + '%]</span>' : '';
+    return isValid(rate) ? '<span class="x-rate"> [' + Math.floor(rate * 100) + '%]</span>' : '';
   },
 
   putTestResult: function(chapIdx, dialogIdx, e2k, pass) {

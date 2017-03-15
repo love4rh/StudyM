@@ -39,8 +39,8 @@ var testMgr = {
     this.board.find('.x-chapter').off('click').on('click', this.onClickItem);
 
     uitool.genMenu([
-      { 'title':'E --> K', 'colorClass':'w3-red', 'handler':this.onGoTestE2K },
-      { 'title':'K --> E', 'colorClass':'w3-teal', 'handler':this.onGoTestK2E }
+      { 'title':R.text('e2k'), 'colorClass':'w3-teal', 'handler':this.onGoTestE2K },
+      { 'title':R.text('k2e'), 'colorClass':'w3-khaki', 'handler':this.onGoTestK2E }
     ], true).addClass('x-test-go').appendTo(this.board);
 
     this.displayed = true;

@@ -54,11 +54,11 @@ var testingMgr = {
 
     this.divButton = [
       uitool.genMenu([
-        { 'title':'I see', 'colorClass':'w3-teal', 'handler':testingMgr.pass },
-        { 'title':'Show Answer', 'colorClass':'w3-red', 'handler':testingMgr.fail }
+        { 'title':R.text('ISee'), 'colorClass':'w3-teal', 'handler':testingMgr.pass },
+        { 'title':R.text('ShowAnswer'), 'colorClass':'w3-red', 'handler':testingMgr.fail }
       ], true).addClass('x-test-go').appendTo(this.board),
       uitool.genMenu([
-        { 'title':'Next', 'colorClass':'w3-blue', 'handler':testingMgr.goNext },
+        { 'title':R.text('Next'), 'colorClass':'w3-blue', 'handler':testingMgr.goNext },
       ]).addClass('x-test-go').appendTo(this.board),
     ];
 
@@ -103,7 +103,7 @@ var testingMgr = {
 
   clearTest: function() {
     RT.save();
-    
+
     var $this = testingMgr;
 
     if( $this.timer ) {

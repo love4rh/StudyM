@@ -24,6 +24,11 @@ var R = {
         'back': '돌아가기',
         'exitTest': '테스트를 중지하시겠습니까?',
         'endTest': '테스트가 모두 끝났습니다.',
+        'ISee': '알겠어요',
+        'ShowAnswer': '모르겠어요',
+        'Next': '다음 문제',
+        'e2k': '한글로 답하기',
+        'k2e': '영어로 답하기',
 
         'hour': '시간',
         'min': '분',
@@ -41,6 +46,11 @@ var R = {
         'back': 'Back to the list',
         'exitTest': 'Are you sure to exit test?',
         'endTest': 'All done to test.',
+        'ISee': 'I see',
+        'ShowAnswer': 'Show Answer',
+        'Next': 'Next',
+        'e2k': 'to Korean',
+        'k2e': 'to English',
 
         'hour': 'hour(s)',
         'min': 'minute(s)',
