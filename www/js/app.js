@@ -123,7 +123,7 @@ var app = {
       app.addPage(pages[i]);
   },
 
-  showPage: function(pageMrg, options) {
+  showPage: function(pageMrg, options, fromBack) {
     var pageID = pageMrg.getPageID();
     var newMgr = app.pages[pageID];
 
@@ -143,7 +143,7 @@ var app = {
     app.pageBoard.find('.x-main-view').hide();
     app.pageBoard.find('#' + pageID).show();
 
-    if( app.currentPageMgr && checkCall(app.currentPageMgr['isHistoric'], true) ) {
+    if( !fromBack && app.currentPageMgr && checkCall(app.currentPageMgr['isHistoric'], true) ) {
       app.pageViewStack.push(app.currentPageMgr);
     }
 
@@ -173,7 +173,7 @@ var app = {
     }
 
     if( app.pageViewStack.length < 1 ) { return false; }
-    app.showPage(app.pageViewStack.pop());
+    app.showPage(app.pageViewStack.pop(), undefined, true);
 
     return true;
   }
