@@ -21,6 +21,9 @@ var R = {
         'review': '복습하기',
         'testSelect': '테스트할 Chapter를 선택하세요.',
         'remainTime': '남은 시간',
+        'back': '돌아가기',
+        'exitTest': '테스트를 중지하시겠습니까?',
+        'endTest': '테스트가 모두 끝났습니다.',
 
         'hour': '시간',
         'min': '분',
@@ -35,6 +38,9 @@ var R = {
         'review': 'Review',
         'testSelect': 'Select chapter(s) for your test',
         'remainTime': 'Remain Time',
+        'back': 'Back to the list',
+        'exitTest': 'Are you sure to exit test?',
+        'endTest': 'All done to test.',
 
         'hour': 'hour(s)',
         'min': 'minute(s)',

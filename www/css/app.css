@@ -132,11 +132,24 @@ textarea { resize: none; }
 }
 
 .x-test-timer {
-
+  font-size:20px!important;
+  margin: 7px;
 }
 
 .x-test-content {
+  font-size:20px;
   margin: 12px;
   padding: 12px;
   border: 1px solid #000;
+}
+
+.x-test-answer {
+  margin-top: 20px;
+  font-size:20px;
+  color: #cddc39;
+}
+
+.x-rate {
+  color: #abb2bf;
+  font-size: 12px;
 }

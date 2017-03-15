@@ -98,6 +98,7 @@ var contentsMgr = {
 
     this.title = ctx['title'];
 
+    var scoreOn = true; // TODO option
     var hs = '<table class="x-theme-d3 x-list-table">';
 
     for(var i = 0; i < dialog.length; ++i) {
@@ -107,8 +108,12 @@ var contentsMgr = {
          + '<td class="x-text-white w3-medium w3-center" style="width: ' + cWidth2 + 'px;">'
          + p['who'] + '</td>'
          + '<td class="w3-medium" style="min-height:50px;">'
-         + '<div class="x-text-yellow x-english">' + p['english'] + '</div>'
-         + '<div class="x-text-sky x-korean">' + p['korean'] + '</div>'
+         + '<div class="x-text-yellow x-english">' + p['english']
+         + (scoreOn ? RT.getPassRateAsHtml(idx, i, true) : '')
+         + '</div>'
+         + '<div class="x-text-sky x-korean">' + p['korean']
+         + (scoreOn ? RT.getPassRateAsHtml(idx, i, false) : '')
+         + '</div>'
          + '</td>'
          + '</tr>'
          ;

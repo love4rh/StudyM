@@ -51,7 +51,7 @@ var testMgr = {
   },
 
   adjustLayout: function(w, h) {
-    const buttonHeight = 60;
+    const buttonHeight = 70;
     var $this = testMgr;
 
     if( !w ) { w = $(window).width(); }
@@ -70,7 +70,7 @@ var testMgr = {
       $row.addClass(testMgr.markSelected)
         .find('div')
         .append(
-          $('<div></div>').addClass("x-middle w3-xxlarge x-text-orange x-checked").html('<i class="fa fa-check"></i>')
+          $('<div></div>').addClass("x-middle w3-xxlarge w3-text-yellow x-checked").html('<i class="fa fa-check"></i>')
         );
     }
   },

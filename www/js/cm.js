@@ -17,6 +17,10 @@ function isValid2(val) {
   return val != '' && isValid(val);
 }
 
+function isValid3(val) {
+  return isValid(val) && val != '' && val != 0;
+}
+
 function nvl(val, ifnull) {
   return isValid2(val) ? val : ifnull;
 }

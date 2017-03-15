@@ -1,5 +1,6 @@
 {  
-  "header":{  
+  "header":{
+    "id":"C001",
     "authour":"TurboK",
     "version":"1.0",
     "date":"2017.03.09",
@@ -1136,7 +1137,7 @@
           "index":6,
           "who":"B",
           "english":"Okay. I'll wrap things up in 5 minutes.",
-          "korean":"알았어. 5분애로 정리할께."
+          "korean":"알았어. 5분 내로 정리할께."
         },
         {  
           "index":7,
