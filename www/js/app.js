@@ -10,6 +10,8 @@ var app = {
   currentPageMgr: undefined,
   pageViewStack: [],
   wannaExit: false,
+  waitDlgCallCnt: 0,
+  waitDlgDiv: $('#waitOverlay'),
 
   begin: function() {
     document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
@@ -30,6 +32,9 @@ var app = {
 
     $(window).off('resize').on('resize', function(){ app.adjustLayout(); });
 
+    $(document).ajaxStart(function(){ app.waitDialog(true); });
+    $(document).ajaxComplete(function(){ app.waitDialog(false); });
+
     // set up Language Pack
     R.setLocale(navigator.language);
 
@@ -39,7 +44,7 @@ var app = {
     // application title
     app.header.find('li:nth-child(2)').html('<span>' + R.text('appTitle') + '<span>');
 
-    app.addPages( [pageMain, studyMgr, testMgr, reviewMgr, contentsMgr, testingMgr] );
+    app.addPages( [pageMain, studyMgr, testMgr, reviewMgr, contentsMgr, testingMgr, settingMgr] );
 
     RT.load('data/sample.json', function(){ app.showPage(pageMain); });
   },
@@ -176,6 +181,23 @@ var app = {
     app.showPage(app.pageViewStack.pop(), undefined, true);
 
     return true;
+  },
+
+  waitDialog: function(show, forced) {
+    if( forced ) {
+      app.waitDlgCallCnt = 0;
+      app.waitDlgDiv.hide();
+      return;
+    }
+
+    app.waitDlgCallCnt += (show ? 1 : -1);
+
+    if( app.waitDlgCallCnt <= 0 ) {
+      app.waitDlgCallCnt = 0;
+      app.waitDlgDiv.hide();
+    } else {
+      app.waitDlgDiv.show();
+    }
   }
 };
 

@@ -23,7 +23,8 @@ var pageMain = {
     var menuList = [
       {'title':R.text('study'), 'icon':'fa-edit', 'colorClass':'w3-teal', 'handler': function(){ app.showPage(studyMgr); } },
       {'title':R.text('test'), 'icon':'fa-check', 'colorClass':'w3-khaki', 'handler': function(){ app.showPage(testMgr); } },
-      {'title':R.text('review'), 'icon':'fa-refresh', 'colorClass':'w3-orange', 'handler': function(){ app.showPage(reviewMgr); } }
+      {'title':R.text('review'), 'icon':'fa-refresh', 'colorClass':'w3-orange', 'handler': function(){ app.showPage(reviewMgr); } },
+      {'title':R.text('setting'), 'icon':'fa-gear', 'colorClass':'w3-grey', 'handler': function(){ app.showPage(settingMgr); } }
     ];
 
     // margin
