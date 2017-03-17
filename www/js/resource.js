@@ -7,15 +7,28 @@ var RT = {
   dataID: undefined,
   score: undefined,
 
-  load: function(dataPath, callback) {
-    $.ajax({
-      url: dataPath,
+  load: function(dataCode, callback, errorCB) {
+    $.support.cors = true;
+
+    aj.call({
+      url: 'http://www.tool4.us:3100/study/download',
+      method: 'POST',
+      data: {'code': dataCode},
       success: function(data) {
+        var dataObj;
+
         if( data instanceof Object ) {
-          RT.data = data;
+          dataObj = data;
         } else {
-          RT.data = JSON.parse(data);
+          dataObj = JSON.parse(data);
         }
+
+        if( isValid(dataObj['error']) ) {
+          if( isValid(errorCB) ) { errorCB(dataObj); }
+          return;
+        }
+
+        RT.data = dataObj;
         RT.dataID = RT.data['header']['id'];
         RT.chapList = RT.data['contents'];
 
@@ -46,6 +59,8 @@ var RT = {
       },
       error: function() {
         console.log('error');
+
+        if( isValid(errorCB) ) { errorCB(); }
       }
     });
   },

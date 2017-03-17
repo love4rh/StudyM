@@ -46,7 +46,8 @@ var app = {
 
     app.addPages( [pageMain, studyMgr, testMgr, reviewMgr, contentsMgr, testingMgr, settingMgr] );
 
-    RT.load('data/sample.json', function(){ app.showPage(pageMain); });
+    // RT.load('data/sample.json', function(){ app.showPage(pageMain); });
+    RT.load('cm001', function(){ app.showPage(pageMain); });
   },
 
   // returns height of ad's

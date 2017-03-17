@@ -30,6 +30,9 @@ var R = {
         'Next': '다음 문제',
         'e2k': '한글로 답하기',
         'k2e': '영어로 답하기',
+        'cCode': '컨텐츠 코드',
+        'download': '컨텐츠 내려 받기',
+        'downDesc': '입력된 코드에 맞는 컨텐츠를 새로 받아 설정합니다.',
 
         'hour': '시간',
         'min': '분',
@@ -53,6 +56,9 @@ var R = {
         'Next': 'Next',
         'e2k': 'to Korean',
         'k2e': 'to English',
+        'cCode': 'Contents Code',
+        'download': 'Download Contents',
+        'downDesc': 'Download and set up the contents that match the contents code you enter.',
 
         'hour': 'hour(s)',
         'min': 'minute(s)',
@@ -63,6 +69,23 @@ var R = {
 
   text: function(type) {
     return R.langPack[type];
+  },
+
+  makeMissing: function(type) {
+    var genText = '';
+    var item = R.text('cCode');
+
+    switch(R.locale) {
+      case 'ko':
+        genText = item + '를 입력하여야 합니다.';
+        break;
+
+      default:
+        genText = 'Please, input ' + genText + '.';
+        break;
+    }
+
+    return genText;
   },
 
   makeText: function(type, options) {
