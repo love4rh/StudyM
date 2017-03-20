@@ -44,6 +44,17 @@ var app = {
     // application title
     app.header.find('li:nth-child(2)').html('<span>' + R.text('appTitle') + '<span>');
 
+    const mainMenu = ['gear'];
+    for(var i = 0; i < mainMenu.length; ++i) {
+      var name = mainMenu[i];
+      app.header.append(
+        $('<li></li>').addClass('x-menu w3-opennav w3-right w3-xlarge')
+          .addClass('x-menu-' + name )
+          .html('<i class="fa fa-' + name + '" style="padding:14px 10px 10px 10px;"></i>')
+          .on('click', function(){ app.actionButton(name); } )
+        );
+    }
+
     app.addPages( [pageMain, studyMgr, testMgr, reviewMgr, contentsMgr, testingMgr, settingMgr] );
 
     RT.initialize( function(){ app.showPage(pageMain); } );
@@ -165,11 +176,25 @@ var app = {
       app.header.find('li:nth-child(1)').html('<a href="javascipt:void(0);"><i class="fa fa-arrow-left"></i></a>').off('click').on('click', app.clickMainMenu);
       app.mainMenuAsGoBack = true;
     } else {
-      app.header.find('li:nth-child(1)').html('<img src="./img/logo.png" style="width:24px; height:24px; margin:13px 10px;">').off('click').on('click', app.clickMainMenu);
+      app.header.find('li:nth-child(1)').html('<img src="./img/logo.png" style="width:30px; height:30px; margin:11px 10px 0px 10px;">').off('click').on('click', app.clickMainMenu);
       app.mainMenuAsGoBack = false;
     }
 
-    app.header.find('li:nth-child(2)').html('<span>' + hi['title'] + '<span>');
+    app.header.find('.x-menu').hide();
+
+    if( isValid(hi['menu']) ) {
+      for(var menuId in hi['menu']) {
+        if( hi['menu'] ) {
+          app.header.find('.x-menu-' + menuId).show();
+        }
+      }
+    }
+
+    app.setTitle(hi['title']);
+  },
+
+  setTitle: function(title) {
+    app.header.find('li:nth-child(2)').html('<span>' + title + '</span>');
   },
 
   goBack: function() {
@@ -197,6 +222,12 @@ var app = {
       app.waitDlgDiv.hide();
     } else {
       app.waitDlgDiv.show();
+    }
+  },
+
+  actionButton: function(buttonName) {
+    if( app.currentPageMgr && app.currentPageMgr['actionButton'] ) {
+      app.currentPageMgr['actionButton'](buttonName);
     }
   }
 };

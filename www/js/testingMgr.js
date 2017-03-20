@@ -11,6 +11,7 @@ var testingMgr = {
   divButton: undefined,
   holding: false,
   e2k: false,
+  mode: undefined,
 
   initialize: function(board) {
     this.board = board;
@@ -18,13 +19,18 @@ var testingMgr = {
 
   getPageID: function() { return 'testingMgr'; },
 
+  getTitle: function() {
+    return R.text(this.mode) + ' (' + (this.posTest + 1) + '/' + this.testList.length + ')';
+  },
+
   getHeaderInfo: function() {
-    return {'title':R.text('test'), 'mainButton':'back'};
+    return {'title':this.getTitle(), 'mainButton':'back'};
   },
 
   isHistoric: function() { return false; },
 
-  // option: 'language':'english', 'selected': [index, ]
+  // option --> mode: test|review, language:english|korean,
+  //    testList: [ [chapter index, dialog index], ]
   onActivated: function(prevMgr, options) {
     if( !options ) {
       console.log('option not set.');
@@ -32,19 +38,10 @@ var testingMgr = {
     }
 
     this.options = options;
+    this.mode = options['mode'];
     this.e2k = options['language'] == 'english';
 
-    // shuffling dialogs
-    var selList = options['selected'];
-
-    this.testList = [];
-    for(var i = 0; i < selList.length; ++i) {
-      var sd = RT.sizeOfDialog(selList[i]);
-      for(var j = 0; j < sd; ++j) {
-        this.testList.push({'chapter':selList[i], 'dialog':j});
-      }
-    }
-    shuffle(this.testList);
+    this.testList = options['testList'];
 
     this.holding = false;
     this.board.empty();
@@ -128,7 +125,7 @@ var testingMgr = {
     if( $this.posTest >= $this.testList.length ) { return; }
 
     var idx = $this.testList[$this.posTest];
-    RT.putTestResult(idx['chapter'], idx['dialog'], $this.e2k, true);
+    RT.putTestResult(idx[0], idx[1], $this.e2k, true);
 
     $this.goNext();
   },
@@ -138,7 +135,7 @@ var testingMgr = {
     if( $this.posTest >= $this.testList.length ) { return; }
 
     var idx = $this.testList[$this.posTest];
-    RT.putTestResult(idx['chapter'], idx['dialog'], $this.e2k, false);
+    RT.putTestResult(idx[0], idx[1], $this.e2k, false);
 
     $this.showAnswer();
   },
@@ -161,6 +158,8 @@ var testingMgr = {
       app.goBack();
       return;
     }
+
+    app.setTitle($this.getTitle());
 
     $this.divButton[0].show();
     $this.divButton[1].hide();
@@ -186,7 +185,7 @@ var testingMgr = {
     }, 1000);
 
     var idx = $this.testList[$this.posTest];
-    var d = RT.getDialog(idx['chapter'], idx['dialog']);
+    var d = RT.getDialog(idx[0], idx[1]);
 
     $this.board.find('.x-test-content').html(
       convertTagToNormal($this.e2k ? d['english'] : d['korean'])

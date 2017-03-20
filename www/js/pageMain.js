@@ -11,7 +11,7 @@ var pageMain = {
   getPageID: function() { return 'pageMain'; },
 
   getHeaderInfo: function() {
-    return {'title':R.text('appTitle'), 'mainButton':'normal'};
+    return {'title':R.text('appTitle'), 'mainButton':'normal', 'menu':{'gear':1}};
   },
 
   /** whether remains in page history or not */
@@ -20,17 +20,18 @@ var pageMain = {
   onActivated: function(prevMgr, options) {
     if( this.displayed ) { return; }
 
-    var menuList = [
-      {'title':R.text('study'), 'icon':'fa-edit', 'colorClass':'w3-teal', 'handler': function(){ app.showPage(studyMgr); } },
-      {'title':R.text('test'), 'icon':'fa-check', 'colorClass':'w3-khaki', 'handler': function(){ app.showPage(testMgr); } },
-      // {'title':R.text('review'), 'icon':'fa-refresh', 'colorClass':'w3-orange', 'handler': function(){ app.showPage(reviewMgr); } },
-      {'title':R.text('setting'), 'icon':'fa-gear', 'colorClass':'w3-grey', 'handler': function(){ app.showPage(settingMgr); } }
-    ];
+    // TODO 설명 이미지
+    // this.board.append( $('<div></div>').html('&nbsp;') );
 
     // margin
     this.board.append( $('<div></div>').html('&nbsp;') );
 
-    this.board.append(uitool.genMenu(menuList));
+    this.board.append(uitool.genMenu([
+      {'title':R.text('study'), 'icon':'fa-edit', 'colorClass':'w3-teal', 'handler': function(){ app.showPage(studyMgr); } },
+      {'title':R.text('test'), 'icon':'fa-check', 'colorClass':'w3-khaki', 'handler': function(){ app.showPage(testMgr); } },
+      {'title':R.text('review'), 'icon':'fa-refresh', 'colorClass':'w3-orange', 'handler': function(){ app.showPage(reviewMgr); } }
+    ]));
+
     this.displayed = true;
   },
 
@@ -40,5 +41,11 @@ var pageMain = {
 
   onDeactivated: function(activePage) {
     //
+  },
+
+  actionButton: function(buttonName) {
+    if( 'gear' === buttonName ) {
+      app.showPage(settingMgr);
+    }
   }
 };

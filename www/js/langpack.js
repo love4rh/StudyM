@@ -33,6 +33,7 @@ var R = {
         'cCode': '컨텐츠 코드',
         'download': '컨텐츠 내려 받기',
         'downDesc': '입력된 코드에 맞는 컨텐츠를 새로 받아 설정합니다.',
+        'notest': '복습할 문제가 없습니다.',
 
         'hour': '시간',
         'min': '분',
@@ -59,6 +60,7 @@ var R = {
         'cCode': 'Contents Code',
         'download': 'Download Contents',
         'downDesc': 'Download and set up the contents that match the contents code you enter.',
+        'notest': 'There is no problems to be reviewed.',
 
         'hour': 'hour(s)',
         'min': 'minute(s)',

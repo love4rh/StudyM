@@ -39,15 +39,16 @@ var testMgr = {
     this.board.find('.x-chapter').off('click').on('click', this.onClickItem);
 
     uitool.genMenu([
-      { 'title':R.text('e2k'), 'colorClass':'w3-teal', 'handler':this.onGoTestE2K },
-      { 'title':R.text('k2e'), 'colorClass':'w3-khaki', 'handler':this.onGoTestK2E }
+      { 'title':R.text('e2k'), 'colorClass':'w3-teal', 'handler':function(){ testMgr.goTest(true); } },
+      { 'title':R.text('k2e'), 'colorClass':'w3-khaki', 'handler':function(){ testMgr.goTest(false); } }
     ], true).addClass('x-test-go').appendTo(this.board);
 
     this.displayed = true;
   },
 
   onDeactivated: function(activePage) {
-    //
+    testMgr.board.find('.' + testMgr.markSelected)
+      .removeClass(testMgr.markSelected).find('.x-checked').remove();
   },
 
   adjustLayout: function(w, h) {
@@ -86,27 +87,31 @@ var testMgr = {
     return r;
   },
 
-  onGoTestE2K: function(event) {
-    var $this = testMgr;
-    var selList = $this._getSelList();
+  _shuffling: function(selList) {
+    var testList = [];
 
-    if( selList.length <= 0 ) {
-      showToast(R.text('testSelect'));
-      return;
+    for(var i = 0; i < selList.length; ++i) {
+      var sd = RT.sizeOfDialog(selList[i]);
+      for(var j = 0; j < sd; ++j) {
+        testList.push( [selList[i], j] );
+      }
     }
+    shuffle(testList);
 
-    app.showPage(testingMgr, {'language':'english', 'selected': selList});
+    return testList;
   },
 
-  onGoTestK2E: function(event) {
+  goTest: function(e2k) {
     var $this = testMgr;
     var selList = $this._getSelList();
 
     if( selList.length <= 0 ) {
       showToast(R.text('testSelect'));
-      return;
+    } else {
+      app.showPage(testingMgr,
+        { 'mode':'test', 'language':(e2k ? 'english' : 'korean'),
+          'testList': $this._shuffling(selList) }
+      );
     }
-
-    app.showPage(testingMgr, {'language':'korean', 'selected': selList});
   }
 };

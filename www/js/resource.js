@@ -7,6 +7,7 @@ var RT = {
   chapList: undefined,
   dataID: undefined,
   score: undefined,
+  chapId2Idx: {},
 
   initialize: function(cb) {
     var dataStr = localStorage.getItem(RT.storageKey);
@@ -65,32 +66,53 @@ var RT = {
     RT.dataID = RT.data.header.id;
     RT.chapList = RT.data.contents;
 
-    var saved = localStorage.getItem('SM-' + RT.dataID);
+    const currentVersion = 1;
+    var saved = localStorage.getItem('SR-' + RT.dataID);
 
     if( isValid2(saved) ) {
       RT.score = JSON.parse(saved);
     } else {
-      RT.score = {};
+      RT.score = { 'version':currentVersion, 'e2k':{}, 'k2e':{} };
     }
+
+    var v = RT.score.version;
+    if( isValid2(v) ) { v = 0; }
 
     for(var i = 0; i < RT.chapList.length; ++i) {
       var chapId = RT.chapList[i].chapter;
-
-      if( !isValid2(RT.score[chapId]) ) {
-        RT.score[chapId] = {};
-      }
-
       var d = RT.chapList[i].dialog;
-      for(var j = 0; j < d.length; ++j) {
-        if( isValid2(RT.score[chapId][j]) ) { continue; }
 
-        RT.score[chapId][j] = { 'e2k':{'try':0, 'pass':0, 'fail':0}, 'k2e':{'try':0, 'pass':0, 'fail':0} };
+      RT.chapId2Idx[chapId] = i;
+
+      for(var j = 0; j < d.length; ++j) {
+        var mk = RT._makeKey(chapId, j);
+        if( isValid2(RT.score.e2k[mk]) ) {
+          if( v == 0 ) {
+            RT.score.e2k[mk].push(0);
+            RT.score.k2e[mk].push(0);
+          }
+          continue;
+        }
+
+        RT.score.e2k[mk] = [0, 0, 0, 0];  // try, pass, fail count and last result
+        RT.score.k2e[mk] = [0, 0, 0, 0];
       }
     }
 
     localStorage.setItem(RT.storageKey, JSON.stringify(dataObj));
 
     if( isValid(callback) ) { callback(data); }
+  },
+
+  _makeKey: function(chanId, dialogIdx) {
+    return chanId + '/' + dialogIdx
+  },
+
+  _sepKey: function(key) {
+    var p = key.indexOf('/');
+    if( p == -1 ) { return; }
+
+    return [key.substring(0, p), parseInt(key.substring(p + 1))];
   },
 
   getDataID: function() {
@@ -110,7 +132,7 @@ var RT = {
   },
 
   save: function() {
-    localStorage.setItem('SM-' + RT.dataID, JSON.stringify(RT.score) );
+    localStorage.setItem('SR-' + RT.dataID, JSON.stringify(RT.score) );
   },
 
   /**
@@ -122,12 +144,13 @@ var RT = {
 
   // returns undefined: haven't been tested yet, the rate of passing the test at range [0, 1]
   getPassRate: function(chapIdx, dialogIdx, e2k) {
-    var chapId = RT.chapList[chapIdx].chapter;
-    var type = (e2k ? 'e2k' : 'k2e');
     var score;
+    var chapId = RT.chapList[chapIdx].chapter;
+    var mk = RT._makeKey(chapId, dialogIdx);
+    var type = (e2k ? 'e2k' : 'k2e');
 
-    if( isValid3(RT.score[chapId][dialogIdx][type].try) ) {
-      score = RT.score[chapId][dialogIdx][type].pass / RT.score[chapId][dialogIdx][type].try;
+    if( isValid3(RT.score[type][mk][0]) ) {
+      score = RT.score[type][mk][1] / RT.score[type][mk][0];
     }
 
     return score;
@@ -141,11 +164,49 @@ var RT = {
 
   putTestResult: function(chapIdx, dialogIdx, e2k, pass) {
     var chapId = RT.chapList[chapIdx].chapter;
+    var mk = RT._makeKey(chapId, dialogIdx);
     var type = (e2k ? 'e2k' : 'k2e');
+    var today = Math.floor(tickCount() / 86400000);
 
-    RT.score[chapId][dialogIdx][type].try += 1;
-    RT.score[chapId][dialogIdx][type][pass ? 'pass' : 'fail'] += 1;
+    // 0: try, 1: pass, 2: fail count, 3: memory step, 4: 마지막 테스트 시간
+    RT.score[type][mk][0] += 1;
+    RT.score[type][mk][pass ? 1 : 2] += 1;
+    RT.score[type][mk][3] = Math.max(0, Math.min(4, RT.score[type][mk][3] + (pass ? 1 : -1)) );
+    RT.score[type][mk][4] = today;
 
-    console.log('(' + chapId + ' / ' + dialogIdx + ') --> ' + (e2k ? 'e2k' : 'k2e') + ': ' + (pass ? 'passed' : 'failed') );
+    /// console.log('(' + chapId + ' / ' + dialogIdx + ') --> ' + (e2k ? 'e2k' : 'k2e') + ': ' + (pass ? 'passed' : 'failed') );
+  },
+
+  getReviewList: function(e2k) {
+    app.waitDialog(true);
+
+    var reviewList = [];  // [{chapter:index, dialog:index}, ]
+    var s = RT.score[e2k ? 'e2k' : 'k2e'];
+    var today = Math.floor(tickCount() / 86400000);
+
+    try {
+      for(var mk in s) {
+        // do not have to add the problem that is not tested.
+        if( s[mk][0] <= 0 ) { continue; }
+
+        var dayDiff = today - nvl(s[mk][4], today);
+
+        if( s[mk][3] <= 0
+          || (s[mk][3] == 1 && dayDiff >= 1)
+          || (s[mk][3] == 2 && dayDiff >= 3)
+          || (s[mk][3] == 3 && dayDiff >= 10)
+          || (s[mk][3] == 3 && Math.random() >= 0.9) )
+        {
+          var id = RT._sepKey(mk);  // [chapID, dialogIdx]
+          reviewList.push([RT.chapId2Idx[id[0]], id[1]]);
+        }
+      }
+
+      shuffle(reviewList);
+    } finally {
+      app.waitDialog(false);
+    }
+
+    return reviewList;
   },
 };
