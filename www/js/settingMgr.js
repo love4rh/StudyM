@@ -47,6 +47,6 @@ var settingMgr = {
       return;
     }
 
-    RT.load(code, function(){ showToat('갱신완료!'); } );
+    RT.load(code, function(){ showToast('갱신완료!'); } );
   }
 };

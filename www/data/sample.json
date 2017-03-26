@@ -1,4 +1,4 @@
-{  
+{
   "header":{
     "id":"C001",
     "authour":"TurboK",
@@ -6,54 +6,54 @@
     "date":"2017.03.09",
     "title":"English"
   },
-  "contents":[  
-    {  
+  "contents":[
+    {
       "chapter":"001",
       "title":"Look, who's here!",
-      "dialog":[  
-        {  
+      "dialog":[
+        {
           "index":1,
           "who":"A",
           "english":"Ryan! Look who's here?",
           "korean":"라이언! 이게 대체 누구야?"
         },
-        {  
+        {
           "index":2,
           "who":"B",
           "english":"Good to see you. What a small world.",
           "korean":"반가워. 세상 참 좁구나."
         },
-        {  
+        {
           "index":3,
           "who":"A",
           "english":"Long time no see. How have you been?",
           "korean":"오랜만이야. 어떻게 지냈어?"
         },
-        {  
+        {
           "index":4,
           "who":"B",
           "english":"I'm doing great. You haven't changed a bit.",
           "korean":"잘 지내고 있어. 넌 하나도 안 변했구나."
         },
-        {  
+        {
           "index":5,
           "who":"A",
           "english":"Nice talking to you. Say hello to your wife.",
           "korean":"대화 즐거웠어. 와이프한테 안부 전해줘."
         },
-        {  
+        {
           "index":6,
           "who":"B",
           "english":"Catch you later. I will keep in touch.",
           "korean":"나중에 봐. 내가 연락할께."
         },
-        {  
+        {
           "index":7,
           "who":"C",
           "english":"Can't complain. Same as usual.",
           "korean":"그럭 저럭 지냈어. 늘 똑같지 뭐."
         },
-        {  
+        {
           "index":8,
           "who":"C",
           "english":"Really? You have changed a lot.",
@@ -61,41 +61,41 @@
         }
       ]
     },
-    {  
+    {
       "chapter":"002",
       "title":"Don't mention it",
-      "dialog":[  
-        {  
+      "dialog":[
+        {
           "index":1,
           "who":"A",
           "english":"I got something for your birthday.",
           "korean":"네 생일선물로 뭘 좀 샀어."
         },
-        {  
+        {
           "index":2,
           "who":"B",
           "english":"A present for me? You shouldn't have!",
           "korean":"내 선물이라고? 안 그래도 되는데!"
         },
-        {  
+        {
           "index":3,
           "who":"A",
           "english":"It's cold outside. I'll give you a ride home.",
           "korean":"바깥 날씨가 추워. 내가 집까지 태워 줄께."
         },
-        {  
+        {
           "index":4,
           "who":"B",
           "english":"Don't bother, but thanks anyway.",
           "korean":"일부러 그럴 거 없어. 어쨌든 고마워."
         },
-        {  
+        {
           "index":5,
           "who":"A",
           "english":"Don't mention it. That's what friends are for.",
           "korean":"별말을 다 하네. 친구 좋다는 게 뭐야."
         },
-        {  
+        {
           "index":6,
           "who":"B",
           "english":"Something smells fishy. Just be yourself.",
@@ -103,65 +103,65 @@
         }
       ]
     },
-    {  
+    {
       "chapter":"003",
       "title":"What's the weather like?",
-      "dialog":[  
-        {  
+      "dialog":[
+        {
           "index":1,
           "who":"A",
           "english":"What's the weather gonna be like this Saturday?",
           "korean":"이번 주 토요일 날씨가 어떨 것 같아?"
         },
-        {  
+        {
           "index":2,
           "who":"B",
           "english":"The weather reporter said that it was gonna be raining.",
           "korean":"일기예보에서 비가 올 거라고 했어."
         },
-        {  
+        {
           "index":3,
           "who":"A",
           "english":"I get the feeling that we should call off our trip.",
           "korean":"여행을 취소해야 할 것 같은 느낌이 들어."
         },
-        {  
+        {
           "index":4,
           "who":"B",
           "english":"Boy! It totally slipped my mind.",
           "korean":"이런! 완전 깜빡 잊고 있었네."
         },
-        {  
+        {
           "index":5,
           "who":"A",
           "english":"Don't tell me that you're going to go alone behind my back.",
           "korean":"설마 나 몰래 혼자 가려고 했던 건 아니겠지."
         },
-        {  
+        {
           "index":6,
           "who":"B",
           "english":"No way! I'll just go with the flow.",
           "korean":"말도 안 돼. 난 그냥 대세를 따를 뿐이야."
         },
-        {  
+        {
           "index":7,
           "who":"C",
           "english":"What's the rookie like?",
           "korean":"새로 온 신참 어때요?"
         },
-        {  
+        {
           "index":8,
           "who":"D",
           "english":"Outgoing. He likes to hang out with people.",
           "korean":"외향적이에요. 사람들과 어울리는 걸 좋아해요."
         },
-        {  
+        {
           "index":9,
           "who":"C",
           "english":"Don't tell me you have changed your mind.",
           "korean":"설말 마음 바꾸려는 건 아니겠지."
         },
-        {  
+        {
           "index":10,
           "who":"D",
           "english":"No. Don't jump to conclusion.",
@@ -169,77 +169,77 @@
         }
       ]
     },
-    {  
+    {
       "chapter":"004",
       "title":"I feel like going out",
-      "dialog":[  
-        {  
+      "dialog":[
+        {
           "index":1,
           "who":"A",
           "english":"I feel like going out with you tonight.",
           "korean":"오늘 밤에 너랑 놀러 가고 싶어."
         },
-        {  
+        {
           "index":2,
           "who":"B",
           "english":"I'm sorry, but I have a previous engagement.",
           "korean":"미안한데 선약이 있어."
         },
-        {  
+        {
           "index":3,
           "who":"A",
           "english":"Nothing beats beer with chicken on a hot day.",
           "korean":"이렇게 더운 날 치맥보다 나은게 없지."
         },
-        {  
+        {
           "index":4,
           "who":"B",
           "english":"Come to think of it, I can't miss a drinking session.",
           "korean":"생각해 보니, 내가 술자리를 놓치면 안 되지."
         },
-        {  
+        {
           "index":5,
           "who":"A",
           "english":"That's it! You might as well cancel your appointment.",
           "korean":"바로 그러야! 너 약속 취소하는 게 낫겠다."
         },
-        {  
+        {
           "index":6,
           "who":"B",
           "english":"I'm gonna have to postpone it for another day.",
           "korean":"약속을 다른 날짜로 옮겨야겠어."
         },
-        {  
+        {
           "index":7,
           "who":"C",
           "english":"I feel like crying my eyes out.",
           "korean":"눈이 붓도록 펑펑 울고 싶은 기분이야."
         },
-        {  
+        {
           "index":8,
           "who":"D",
           "english":"Chin up and I'll keep you company.",
           "korean":"기운대. 내가 곁에 있어 줄께."
         },
-        {  
+        {
           "index":9,
           "who":"C",
           "english":"We have to wait for an hour for the next bus.",
           "korean":"다음 버스를 타려면 한 시간을 기다려야 해요."
         },
-        {  
+        {
           "index":10,
           "who":"D",
           "english":"We might as well walk. It only takes 20 minutes on foot.",
           "korean":"걸어가는 게 낫겠어요. 걸어서 20분이면 되요."
         },
-        {  
+        {
           "index":11,
           "who":"C",
           "english":"Could you postpone it for another day?",
           "korean":"다른 날로 연기해 줄래?"
         },
-        {  
+        {
           "index":12,
           "who":"D",
           "english":"It's up to you. It's all the same.",
@@ -247,77 +247,77 @@
         }
       ]
     },
-    {  
+    {
       "chapter":"005",
       "title":"Care for some coffee?",
-      "dialog":[  
-        {  
+      "dialog":[
+        {
           "index":1,
           "who":"A",
           "english":"How did you get those plane tickets?",
           "korean":"비행기 티켓 어떻게 구했어?"
         },
-        {  
+        {
           "index":2,
           "who":"B",
           "english":"I pulled some strings. I have good connections.",
           "korean":"내가 백을 좀 썼지. 좋은 인맥이 좀 있거든."
         },
-        {  
+        {
           "index":3,
           "who":"A",
           "english":"I knew it. Care for some coffee after lunch?",
           "korean":"그럴 줄 알았어. 점심 먹고 커피 한잔 어때?"
         },
-        {  
+        {
           "index":4,
           "who":"B",
           "english":"You're a big fan of coffee. Go easy on it.",
           "korean":"커피 정말 좋아하는구나. 적당히 마셔."
         },
-        {  
+        {
           "index":5,
           "who":"A",
           "english":"It's not gonna kill you to have one.",
           "korean":"한 잔 마신다고 큰일 나는 거 아니잖아."
         },
-        {  
+        {
           "index":6,
           "who":"B",
           "english":"Don't forget to bring Anna.",
           "korean":"안나 데려오는 거 잊지 말고."
         },
-        {  
+        {
           "index":7,
           "who":"C",
           "english":"(Would you) care for dessert?",
           "korean":"디저트 좀 드시겠어요?"
         },
-        {  
+        {
           "index":8,
           "who":"D",
           "english":"Yes, I'd like a cheese cake.",
           "korean":"네. 치즈케이크 주세요."
         },
-        {  
+        {
           "index":9,
           "who":"C",
           "english":"I always wear casual clothes.",
           "korean":"전 항상 편한 옷을 입어요."
         },
-        {  
+        {
           "index":10,
           "who":"D",
           "english":"It's not gonna kill you to look like a girl for one day.",
           "korean":"하루 정도 여성스럽게 입는다고 큰일 나지 않아."
         },
-        {  
+        {
           "index":11,
           "who":"C",
           "english":"How do you like your coffee?",
           "korean":"커피는 어떻게 해 드릴까요?"
         },
-        {  
+        {
           "index":12,
           "who":"D",
           "english":"No cream. Please go easy on the sugar.",
@@ -325,83 +325,83 @@
         }
       ]
     },
-    {  
+    {
       "chapter":"006",
       "title":"Look on the bright side",
-      "dialog":[  
-        {  
+      "dialog":[
+        {
           "index":1,
           "who":"A",
           "english":"I'm sorry to keep you waiting. So where were we?",
           "korean":"기다리게 해서 미안해요. 어디까지 얘기했죠?"
         },
-        {  
+        {
           "index":2,
           "who":"B",
           "english":"We need to fix the date for the next meeting?",
           "korean":"다음 미팅 날짜를 확정해야 해요."
         },
-        {  
+        {
           "index":3,
           "who":"A",
           "english":"When is the most convenient time for you?",
           "korean":"언제가 가능 편하세요?"
         },
-        {  
+        {
           "index":4,
           "who":"B",
           "english":"Too bad I'm not able to make time this week.",
           "korean":"안탑깝게도 이번 주는 시간을 낼 수가 없어요."
         },
-        {  
+        {
           "index":5,
           "who":"A",
           "english":"Try to look on a bright side.",
           "korean":"긍정적으로 생각 좀 해 봐요."
         },
-        {  
+        {
           "index":6,
           "who":"B",
           "english":"Got it. Keep me posted on your progress.",
           "korean":"알았어요. 진행 상황을 계속 알려 줘요."
         },
-        {  
+        {
           "index":7,
           "who":"C",
           "english":"Have you fixed the date for the wedding?",
           "korean":"결혼식 날짜 잡았어요?"
         },
-        {  
+        {
           "index":8,
           "who":"D",
           "english":"Yes. I've sent you the invitation. Please RSVP by Friday.",
           "korean":"네. 초대장 보냈어요. 금요일까지 회답해 주세요."
         },
-        {  
+        {
           "index":9,
           "who":"C",
           "english":"Too bad you have to stay home on a day like this.",
           "korean":"이런 날 집에 있어야 하다니 정말 안탑깝네요."
         },
-        {  
+        {
           "index":10,
           "who":"D",
           "english":"Tell me about it. I'll just vacuum the floor and wipe it.",
           "korean":"내 말이요. 청소기 돌리고 바닥이나 닦아야죠."
         },
-        {  
+        {
           "index":11,
           "who":"C",
           "english":"I'm afraid I'm not really a people person.",
           "korean":"전 그렇게 사교적인 사람이 아니에요."
         },
-        {  
+        {
           "index":12,
           "who":"D",
           "english":"Look on a bright side. You're the life of the party.",
           "korean":"긍정적으로 생각해요. 당신은 분위기 메이커잖아요."
         },
-        {  
+        {
           "index":13,
           "who":"D",
           "english":"Ok, but I'm afraid my phone battery is dead.",
@@ -409,53 +409,53 @@
         }
       ]
     },
-    {  
+    {
       "chapter":"007",
       "title":"What do you mean?",
-      "dialog":[  
-        {  
+      "dialog":[
+        {
           "index":1,
           "who":"A",
           "english":"I'm calling to make a reservation at seven.",
           "korean":"7시에 예약하려고 전화 드렸어요."
         },
-        {  
+        {
           "index":2,
           "who":"B",
           "english":"How many in your party, sir?",
           "korean":"몇 명이신데요?"
         },
-        {  
+        {
           "index":3,
           "who":"A",
           "english":"Do you have a room for six?",
           "korean":"6명인데 방이 있나요?"
         },
-        {  
+        {
           "index":4,
           "who":"B",
           "english":"It makes no difference whether you book or not.",
           "korean":"예약을 하시든 안 하시든 차이가 없어요."
         },
-        {  
+        {
           "index":5,
           "who":"A",
           "english":"What do you mean?",
           "korean":"무슨 뜻이죠?"
         },
-        {  
+        {
           "index":6,
           "who":"B",
           "english":"You'll be admitted on a first-come first-served basis.",
           "korean":"오시는 순서대로 입장 시켜 드리거든요."
         },
-        {  
+        {
           "index":7,
           "who":"C",
           "english":"I made a reservation in the name of Smith.",
           "korean":"스미스라는 이름을 예약했습니다."
         },
-        {  
+        {
           "index":8,
           "who":"D",
           "english":"Ok, here it is. Your room number is 907.",
@@ -463,435 +463,45 @@
         }
       ]
     },
-    {  
+    {
       "chapter":"008",
       "title":"Can you give me a hand?",
-      "dialog":[  
-        {  
+      "dialog":[
+        {
           "index":1,
           "who":"A",
           "english":"Can you give me a hand with this?",
           "korean":"이것 좀 도와줄래?"
         },
-        {  
+        {
           "index":2,
           "who":"B",
           "english":"I'd love to, but I'm too busy.",
           "korean":"그러고 싶은데 너무 바빠."
         },
-        {  
+        {
           "index":3,
           "who":"A",
           "english":"How come you're good at making excuses?",
           "korean":"넌 왜 그렇게 핑계를 잘 대니?"
         },
-        {  
+        {
           "index":4,
           "who":"B",
           "english":"Don't take it out on me.",
           "korean":"나한테 화풀이하지 마."
         },
-        {  
+        {
           "index":5,
           "who":"A",
           "english":"All you have to do is just say yes.",
           "korean":"알았다고 말하면 되잖아."
         },
-        {  
+        {
           "index":6,
           "who":"B",
           "english":"You have to do it yourself to improve your ability.",
           "korean":"네 능력을 키우려면 스스로 해야 해."
-        }
-      ]
-    },
-    {  
-      "chapter":"009",
-      "title":"Want to come along?",
-      "dialog":[  
-        {  
-          "index":1,
-          "who":"A",
-          "english":"I'm going camping this weekend. Want to com along?",
-          "korean":"이번 주말에 캠핑가려고 하는데. 같이 갈래요?"
-        },
-        {  
-          "index":2,
-          "who":"B",
-          "english":"Why not? Can I get you anything?",
-          "korean":"물론이죠. 뭘 가져갈까요?"
-        },
-        {  
-          "index":3,
-          "who":"A",
-          "english":"Just bring yourself. I'll take care of everything.",
-          "korean":"그냥 몸만 오세요. 제가 다 알아서 준비할께요."
-        },
-        {  
-          "index":4,
-          "who":"B",
-          "english":"I've been wanting to hit the road for a change lately.",
-          "korean":"요즘 기분 전환 삼아 좀 떠나고 싶었어요."
-        },
-        {  
-          "index":5,
-          "who":"A",
-          "english":"That's great. I'm also looking forward to this trip.",
-          "korean":"잘됐네요. 저도 이번 여행을 고대하고 있어요."
-        },
-        {  
-          "index":6,
-          "who":"B",
-          "english":"I wouldn't miss it for anything.",
-          "korean":"무슨 일이 있어도 갈게요."
-        },
-        {  
-          "index":7,
-          "who":"D",
-          "english":"Cross my heart. I wouldn't miss it for anything.",
-          "korean":"맹세할게. 무슨 일이 있어도 갈게."
-        }
-      ]
-    },
-    {  
-      "chapter":"010",
-      "title":"He's getting out of hand",
-      "dialog":[  
-        {  
-          "index":1,
-          "who":"A",
-          "english":"My boss is not easy to get along with.",
-          "korean":"우리 사장님과 함께 지내기 정말 힘들어."
-        },
-        {  
-          "index":2,
-          "who":"B",
-          "english":"What is it? Spit it out.",
-          "korean":"뭐 때문에? 말해 봐."
-        },
-        {  
-          "index":3,
-          "who":"A",
-          "english":"He's two-faced and getting out of hand.",
-          "korean":"그는 이중적이고 갈수록 감당히 안 돼."
-        },
-        {  
-          "index":4,
-          "who":"B",
-          "english":"You're annoyed by his constant complaints.",
-          "korean":"끊임없이 불평하는 덕에 짜증스럽다며."
-        },
-        {  
-          "index":5,
-          "who":"A",
-          "english":"He's in a bad mood for some reason today.",
-          "korean":"오늘도 무슨 이유인지 기분이 안 좋으셔."
-        },
-        {  
-          "index":6,
-          "who":"B",
-          "english":"The thing is you're not cut out to kiss up him.",
-          "korean":"네가 아부에 소질이 없는 것도 문제야."
-        },
-        {  
-          "index":7,
-          "who":"C",
-          "english":"Nowadays children are getting out of hand.",
-          "korean":"요즘 애들은 정말 통제가 안 돼."
-        },
-        {  
-          "index":8,
-          "who":"D",
-          "english":"They always pick a fight when they run into each other.",
-          "korean":"걔들은 만날 때마다 시비를 걸지."
-        },
-        {  
-          "index":9,
-          "who":"C",
-          "english":"You look like you are in a good mood today.",
-          "korean":"오늘 기분이 좋아 보이네요."
-        },
-        {  
-          "index":10,
-          "who":"D",
-          "english":"My son was discharged form the military yesterday.",
-          "korean":"아들이 어제 제대했거든요."
-        },
-        {  
-          "index":11,
-          "who":"C",
-          "english":"I don't think I'm cut out to be a stay-home mom.",
-          "korean":"나한테 전업주부가 적성에 맞지 않나 봐."
-        },
-        {  
-          "index":12,
-          "who":"D",
-          "english":"I see what you mean. I think you should get a job.",
-          "korean":"무슨 말인지 알아. 직장을 구해야겠네."
-        },
-        {  
-          "index":13,
-          "who":"C",
-          "english":"Don't kiss up to me. It's not gonna work.",
-          "korean":"나한테 아부하지 마. 소용없어."
-        },
-        {  
-          "index":14,
-          "who":"D",
-          "english":"You're too much. Give me a break!",
-          "korean":"정말 너무해. 한 번만 봐줘!"
-        }
-      ]
-    },
-    {  
-      "chapter":"011",
-      "title":"You've crossed the line",
-      "dialog":[  
-        {  
-          "index":1,
-          "who":"A",
-          "english":"Please don't give me a hard time.",
-          "korean":"나 좀 힘들게 하지 마세요."
-        },
-        {  
-          "index":2,
-          "who":"B",
-          "english":"It's not like I asked you to marry me or what.",
-          "korean":"당신에세 결혼해 달라고 한 것도 아니잖아요."
-        },
-        {  
-          "index":3,
-          "who":"A",
-          "english":"You just occasionally wanna have coffee or lunch?",
-          "korean":"가끔 커피나 점심 먹자는 것뿐이에요?"
-        },
-        {  
-          "index":4,
-          "who":"B",
-          "english":"I hope we can get back together again.",
-          "korean":"우리가 다시 시작할 수 있기를 바래요."
-        },
-        {  
-          "index":5,
-          "who":"A",
-          "english":"How could you cheat on me for that long?",
-          "korean":"어떻게 그렇게 오래 바람을 피울 수가 있어요?"
-        },
-        {  
-          "index":6,
-          "who":"B",
-          "english":"I must admit, I've crossed the line.",
-          "korean":"솔직히 제가 좀 심했어요."
-        },
-        {  
-          "index":7,
-          "who":"C",
-          "english":"Really? How can you be so sure?",
-          "korean":"정말? 어떻게 그렇게 확신하는 거야?"
-        }
-      ]
-    },
-    {  
-      "chapter":"012",
-      "title":"Are you sure?",
-      "dialog":[  
-        {  
-          "index":1,
-          "who":"A",
-          "english":"I'd like to put my car on the market.",
-          "korean":"내 차를 시장에 내놓으려고 해."
-        },
-        {  
-          "index":2,
-          "who":"B",
-          "english":"Are you sure? What's the deal?",
-          "korean":"정말요? 무슨일이에요?"
-        },
-        {  
-          "index":3,
-          "who":"A",
-          "english":"We don't need two cars anymore.",
-          "korean":"더 이상 자동차가 두 대나 필요 없잖아."
-        },
-        {  
-          "index":4,
-          "who":"B",
-          "english":"What if you have the car, and I have to go shopping?",
-          "korean":"당신이 차를 쓰고 있는데 내가 쇼핑을 가야하면요?"
-        },
-        {  
-          "index":5,
-          "who":"A",
-          "english":"We need to cut back on shopping.",
-          "korean":"우리 쇼핑을 좀 줄어야 해."
-        },
-        {  
-          "index":6,
-          "who":"B",
-          "english":"Honey, I think you should just calm down a little bit.",
-          "korean":"여보, 당신 잠시 진정해야 할 것 같아요."
-        },
-        {  
-          "index":7,
-          "who":"C",
-          "english":"From now on, we should cut back on spending.",
-          "korean":"이제부터 우리 소비를 줄어야 해."
-        }
-      ]
-    },
-    {  
-      "chapter":"013",
-      "title":"Don't tell me what to do.",
-      "dialog":[  
-        {  
-          "index":1,
-          "who":"A",
-          "english":"I'm gonna have my friend over tonight.",
-          "korean":"오늘 밤에 침구를 집에 초대하려고요."
-        },
-        {  
-          "index":2,
-          "who":"B",
-          "english":"What's the occasion? He's a friend from school?",
-          "korean":"무슨 일인데? 학교 친구니?"
-        },
-        {  
-          "index":3,
-          "who":"A",
-          "english":"Yes, the real good kind. We have a lot in common.",
-          "korean":"네. 정말 좋은 친구에요. 우린 공통점이 참 많아요."
-        },
-        {  
-          "index":4,
-          "who":"B",
-          "english":"You can't tell me something like this on such short notice.",
-          "korean":"그런 일을 그렇게 갑자기 애기하면 안 되지."
-        },
-        {  
-          "index":5,
-          "who":"A",
-          "english":"Mom, please don't tell me what to do.",
-          "korean":"엄마, 제발 잔소리 좀 하지 마세요."
-        },
-        {  
-          "index":6,
-          "who":"B",
-          "english":"He's not coming. Over my dead body.",
-          "korean":"친구는 못 와. 절대로 안 돼."
-        },
-        {  
-          "index":7,
-          "who":"C",
-          "english":"Why can't you do as you're told?",
-          "korean":"시키는 대로 좀 하지 그래?"
-        },
-        {  
-          "index":8,
-          "who":"D",
-          "english":"You're too nosy. Don't tell me what todo.",
-          "korean":"넌 간섭이 너무 심해. 잔소리 좀 하지 마."
-        }
-      ]
-    },
-    {  
-      "chapter":"014",
-      "title":"I called in sick",
-      "dialog":[  
-        {  
-          "index":1,
-          "who":"A",
-          "english":"I'm not feeling well today, so I called in sick.",
-          "korean":"오늘 몸이 안 좋아서 병가 냈어."
-        },
-        {  
-          "index":2,
-          "who":"B",
-          "english":"I think you should take a few days off.",
-          "korean":"너 며칠 쉬어야 할 것 같아."
-        },
-        {  
-          "index":3,
-          "who":"A",
-          "english":"I'd like to. Thanks for your concern.",
-          "korean":"그래야 할 것 같아. 걱정해 줘서 고마워."
-        },
-        {  
-          "index":4,
-          "who":"B",
-          "english":"It's like you've been working 24/7 these days.",
-          "korean":"요즘 밤낮으로 일만 하는 거 같더라."
-        },
-        {  
-          "index":5,
-          "who":"A",
-          "english":"I don't want to work overtime, but it's the only way.",
-          "korean":"나도 야근하고 싶지 않은데, 방법이 이거 밖에 없어."
-        },
-        {  
-          "index":6,
-          "who":"B",
-          "english":"I'm telling you, nobody can stop you.",
-          "korean":"정말이지, 아무도 널 못 말려."
-        },
-        {  
-          "index":7,
-          "who":"C",
-          "english":"I'm not feeling well. I can't shake off my cold.",
-          "korean":"몸이 좋지 않네. 감기가 떨어지질 않아."
-        }
-      ]
-    },
-    {  
-      "chapter":"015",
-      "title":"What's up with your hair?",
-      "dialog":[  
-        {  
-          "index":1,
-          "who":"A",
-          "english":"Hey, what's up with your hair?",
-          "korean":"머리가 대체 왜 그래?"
-        },
-        {  
-          "index":2,
-          "who":"B",
-          "english":"I overslept. My office dinner ended after midnight.",
-          "korean":"늦잠 잤어. 사무실 회식이 자정 넘어서 끝났거든."
-        },
-        {  
-          "index":3,
-          "who":"A",
-          "english":"You're supposed to make a presentation tomorrow.",
-          "korean":"너 내일 프레젠테이션 하기로 되어 있잖아."
-        },
-        {  
-          "index":4,
-          "who":"B",
-          "english":"Can you help me with my work a little?",
-          "korean":"내 일좀 도와줄 수 있어?"
-        },
-        {  
-          "index":5,
-          "who":"A",
-          "english":"Okay. Let's go over your assignment first.",
-          "korean":"그래. 먼저 네 과제물부터 검토해 보자."
-        },
-        {  
-          "index":6,
-          "who":"B",
-          "english":"Please book a meeting room first.",
-          "korean":"우선 회의실 부터 미리 예약해 줘."
-        },
-        {  
-          "index":7,
-          "who":"C",
-          "english":"I think we were supposed to get back together.",
-          "korean":"우리 다시 시작하기로 했던 것 같은데요."
-        },
-        {  
-          "index":8,
-          "who":"D",
-          "english":"I don't think we should see each other anymore.",
-          "korean":"우리 그만 만나는 게 좋겠어요."
         }
       ]
     }
