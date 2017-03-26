@@ -51,15 +51,19 @@ var testingMgr = {
 
     this.divButton = [
       uitool.genMenu([
-        { 'title':R.text('ISee'), 'colorClass':'w3-teal', 'handler':testingMgr.pass },
+        { 'title':R.text('ISee'), 'colorClass':'w3-teal', 'handler':function(){ testingMgr.showAnswer(true); } },
         { 'title':R.text('ShowAnswer'), 'colorClass':'w3-red', 'handler':testingMgr.fail }
       ], true).addClass('x-test-go').appendTo(this.board),
       uitool.genMenu([
         { 'title':R.text('Next'), 'colorClass':'w3-blue', 'handler':testingMgr.goNext },
       ]).addClass('x-test-go').appendTo(this.board),
+      uitool.genMenu([
+        { 'title':R.text('Igot'), 'colorClass':'w3-teal', 'handler':testingMgr.pass },
+        { 'title':R.text('Imiss'), 'colorClass':'w3-red', 'handler':function() { testingMgr.fail(); testingMgr.goNext(); } }
+      ], true).addClass('x-test-go').appendTo(this.board)
     ];
 
-    this.divButton[1].hide();
+    this.showButtons(1);
 
     this.posTest = -1;
     this.goNext(true);
@@ -87,7 +91,7 @@ var testingMgr = {
   },
 
   adjustLayout: function(w, h) {
-    const buttonHeight = 70;
+    var buttonHeight = 70;
     var $this = testingMgr;
 
     if( !w ) { w = $(window).width(); }
@@ -109,15 +113,23 @@ var testingMgr = {
     }
   },
 
-  showAnswer: function() {
+  showAnswer: function(pass) {
     var $this = testingMgr;
 
     $this.board.find('.x-test-answer').show();
-
-    $this.divButton[0].hide();
-    $this.divButton[1].show();
+    $this.showButtons(pass ? 2 : 1);
 
     $this.clearTest();
+  },
+
+  showButtons: function(buttonType) {
+    var $this = testingMgr;
+
+    $this.divButton[0].hide();
+    $this.divButton[1].hide();
+    $this.divButton[2].hide();
+
+    $this.divButton[buttonType].show();
   },
 
   pass: function(event) {
@@ -137,7 +149,7 @@ var testingMgr = {
     var idx = $this.testList[$this.posTest];
     RT.putTestResult(idx[0], idx[1], $this.e2k, false);
 
-    $this.showAnswer();
+    $this.showAnswer(false);
   },
 
   goNext: function() {
@@ -148,8 +160,7 @@ var testingMgr = {
     if( $this.posTest == $this.testList.length ) {
       $this.clearTest();
 
-      $this.divButton[0].hide();
-      $this.divButton[1].show();
+      $this.showButtons(1);
       $this.divButton[1].find('button').text(R.text('back'));
 
       showToast(R.text('endTest'));
@@ -161,8 +172,7 @@ var testingMgr = {
 
     app.setTitle($this.getTitle());
 
-    $this.divButton[0].show();
-    $this.divButton[1].hide();
+    $this.showButtons(0);
 
     //
     if( $this.timer ) {
