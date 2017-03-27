@@ -2,6 +2,7 @@
  * Application Main Class
  */
 var app = {
+  noAd: true,
   pages: {},
   appBoard: $('#appMain'),
   header: $('#appHeader'),
@@ -44,7 +45,7 @@ var app = {
     // application title
     app.header.find('li:nth-child(2)').html('<span>' + R.text('appTitle') + '<span>');
 
-    const mainMenu = ['gear'];
+    var mainMenu = ['gear'];
     for(var i = 0; i < mainMenu.length; ++i) {
       var name = mainMenu[i];
       app.header.append(
@@ -62,7 +63,7 @@ var app = {
 
   // returns height of ad's
   getAdHeight: function() {
-    return isRunningOnBrowser() ? 0 : 50;
+    return app.noAd || isRunningOnBrowser() ? 0 : 50;
   },
 
   getHeaderHeight: function() {
@@ -97,7 +98,10 @@ var app = {
 
   onResume: function(event) {
     app.adjustLayout();
-    setTimeout(function() { admob.showADBanner(); }, 20);
+
+    if( !app.noAd ) {
+      setTimeout(function() { admob.showADBanner(); }, 20);
+    }
   },
 
   onBackKeyDown: function(event) {
@@ -166,7 +170,9 @@ var app = {
     app.currentPageMgr = newMgr;
     app.adjustLayout();
 
-    setTimeout(function() { admob.showADBanner(); }, 20);
+    if( !app.noAd ) {
+      setTimeout(function() { admob.showADBanner(); }, 20);
+    }
   },
 
   switchHeader: function(pageMgr) {
