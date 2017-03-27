@@ -47,6 +47,11 @@ var settingMgr = {
       return;
     }
 
-    RT.load(code, function(){ showToast('갱신완료!'); } );
+    RT.load(code,
+      function() { showToast('갱신완료!'); },
+      function(errMsg) {
+        showToast('컨텐츠 코드를 확인해 주세요.');
+      }
+    );
   }
 };

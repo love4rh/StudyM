@@ -39,16 +39,15 @@ var RT = {
       method: 'GET',
       data: {'code': dataCode},
       success: function(data) {
-        RT.onLoad(data, callback);
+        RT.onLoad(data, callback, errorCB);
       },
       error: function() {
-        console.log('error');
-        if( isValid(errorCB) ) { errorCB(); }
+        if( isValid(errorCB) ) { errorCB('error'); }
       }
     });
   },
 
-  onLoad: function(data, callback) {
+  onLoad: function(data, callback, errorCB) {
     var dataObj;
 
     if( data instanceof Object ) {
@@ -58,7 +57,7 @@ var RT = {
     }
 
     if( isValid(dataObj.error) ) {
-      if( isValid(errorCB) ) { errorCB(dataObj); }
+      if( isValid(errorCB) ) { errorCB(dataObj.error); }
       return;
     }
 
