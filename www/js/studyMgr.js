@@ -7,6 +7,7 @@ const cWidth2 = 30;
 var studyMgr = {
   board: undefined,
   displayed: false,
+  scrollPos: 0,
 
   initialize: function(board) {
     this.board = board;
@@ -21,7 +22,10 @@ var studyMgr = {
   isHistoric: function() { return true; },
 
   onActivated: function(prevMgr, options) {
-    if( this.displayed ) { return; }
+    if( this.displayed ) {
+      this.board.scrollTop(this.scrollPos);
+      return;
+    }
 
     var hs = '<table class="x-theme-d3 x-list-table">';
 
@@ -36,14 +40,14 @@ var studyMgr = {
     }
     hs += '</table>';
 
-    this.board.html(hs);
+    this.board.html(hs).css('overflow', 'auto');
     this.board.find('.x-list-table tr').off('click').on('click', this.onClickItem);
 
     this.displayed = true;
   },
 
   onDeactivated: function(activePage) {
-    //
+    this.scrollPos = this.board.scrollTop();
   },
 
   adjustLayout: function(w, h) {
@@ -72,6 +76,8 @@ var contentsMgr = {
   board: undefined,
   title: undefined,
   langToggle: 3, // 1: English, 2: Korean, 3: Both
+  mc: undefined,
+  cIdx: undefined,
 
   initialize: function(board) {
     this.board = board;
@@ -83,7 +89,7 @@ var contentsMgr = {
     return {'title':this.title, 'mainButton':'back'};
   },
 
-  isHistoric: function() { return true; },
+  isHistoric: function() { return false; },
 
   onActivated: function(prevMgr, options) {
     if( !options ) {
@@ -92,11 +98,16 @@ var contentsMgr = {
       return;
     }
 
-    var idx = options['index'];
+    this.display(options['index']);
+  },
+
+  display: function(idx) {
     var ctx = RT.getContent(idx);
     var dialog = ctx['dialog'];
 
     this.title = ctx['title'];
+    app.setTitle(this.title);
+    this.cIdx = idx;
 
     var scoreOn = true; // TODO option
     var hs = '<table class="x-theme-d3 x-list-table">';
@@ -127,16 +138,35 @@ var contentsMgr = {
       .addClass('x-lang-toggle').appendTo(this.board);
 
     this.toggleDisplay();
-  },
 
-  isHistoric: function() { return false; },
+    if( !isValid(this.mc) ) {
+      this.mc = new Hammer( document.getElementById(this.getPageID()) );
+      this.mc.on('panstart panleft panright panend', this.onPan);
+    }
+
+    this.adjustLayout();
+  },
 
   onDeactivated: function(activePage) {
     //
   },
 
+  onPan: function(event) {
+    if( event.type == 'panend' && Math.abs(event.deltaX) > 40 ) {
+      var idx = parseInt(contentsMgr.cIdx);
+
+      if( event.deltaX < 0 ) {
+        idx = Math.min(idx + 1, RT.sizeOfChapter() - 1);
+      } else {
+        idx = Math.max(idx - 1, 0);
+      }
+
+      contentsMgr.display(idx);
+    }
+  },
+
   adjustLayout: function(w, h) {
-    const buttonHeight = 60;
+    const buttonHeight = 70;
     var $this = contentsMgr;
 
     if( !w ) { w = $(window).width(); }

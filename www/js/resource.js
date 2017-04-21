@@ -41,7 +41,8 @@ var RT = {
       success: function(data) {
         RT.onLoad(data, callback, errorCB);
       },
-      error: function() {
+      error: function(err) {
+        console.log(err);
         if( isValid(errorCB) ) { errorCB('error'); }
       }
     });
@@ -65,7 +66,7 @@ var RT = {
     RT.dataID = RT.data.header.id;
     RT.chapList = RT.data.contents;
 
-    const currentVersion = 1;
+    var currentVersion = 1;
     var saved = localStorage.getItem('SR-' + RT.dataID);
 
     if( isValid2(saved) ) {
