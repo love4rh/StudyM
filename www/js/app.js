@@ -3,9 +3,11 @@
  */
 var app = {
   pages: {},
+  adShown: true,
   appBoard: $('#appMain'),
   header: $('#appHeader'),
   pageBoard: $('#appBody'),
+  adDiv: $('#appAd'),
   mainMenuAsGoBack: false,
   currentPageMgr: undefined,
   pageViewStack: [],
@@ -44,7 +46,7 @@ var app = {
     // application title
     app.header.find('li:nth-child(2)').html('<span>' + R.text('appTitle') + '<span>');
 
-    const mainMenu = ['gear'];
+    var mainMenu = ['gear'];
     for(var i = 0; i < mainMenu.length; ++i) {
       var name = mainMenu[i];
       app.header.append(
@@ -62,7 +64,7 @@ var app = {
 
   // returns height of ad's
   getAdHeight: function() {
-    return isRunningOnBrowser() ? 0 : 50;
+    return !app.adShown || isRunningOnBrowser() ? 0 : 50;
   },
 
   getHeaderHeight: function() {
@@ -71,6 +73,7 @@ var app = {
 
   adjustLayout: function() {
     var appHeaderHeight = app.getHeaderHeight();
+    var adHeight = app.getAdHeight();
 
     var w = $(window).width();
     var h = $(window).height();
@@ -79,8 +82,10 @@ var app = {
 
     place(app.appBoard, undefined, undefined, w, h);
     place(app.header, undefined, undefined, w, appHeaderHeight);
-    place(app.pageBoard, undefined, undefined, w, h - appHeaderHeight - app.getAdHeight());
-    // place(app.pageBoard.find('.x-main-view'), undefined, undefined, w, h - appHeaderHeight);
+    place(app.pageBoard, undefined, undefined, w, h - appHeaderHeight - adHeight);
+    place(app.pageBoard.find('.x-main-view'), undefined, undefined, w, h - appHeaderHeight - adHeight);
+
+    place(app.adDiv, undefined, adHeight, w, adHeight);
 
     app.pageBoard.css({'position':'relative', 'top':appHeaderHeight + cUnit});
 
@@ -97,7 +102,6 @@ var app = {
 
   onResume: function(event) {
     app.adjustLayout();
-    setTimeout(function() { admob.showADBanner(); }, 20);
   },
 
   onBackKeyDown: function(event) {
@@ -163,10 +167,12 @@ var app = {
       app.pageViewStack.push(app.currentPageMgr);
     }
 
+    if( app.adShown ) {
+      setTimeout(function() { admob.showADBanner(); }, 20);
+    }
+
     app.currentPageMgr = newMgr;
     app.adjustLayout();
-
-    setTimeout(function() { admob.showADBanner(); }, 20);
   },
 
   switchHeader: function(pageMgr) {

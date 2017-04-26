@@ -28,7 +28,7 @@ var testMgr = {
       var ctx = RT.getContent(i);
 
       hs += '<div class="w3-col s3 m3 l3 w3-center x-chapter" style="height:50px;" data-idx="' + i + '">'
-        + '<div style="position:relative;">' + ctx['chapter'] + '</div></div>'
+        + '<div style="position:relative;">' + ctx.chapter + '</div></div>'
         ;
     }
     hs += '</div>';
@@ -52,7 +52,7 @@ var testMgr = {
   },
 
   adjustLayout: function(w, h) {
-    const buttonHeight = 70;
+    var buttonHeight = 70;
     var $this = testMgr;
 
     if( !w ) { w = $(window).width(); }
