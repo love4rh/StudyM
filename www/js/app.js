@@ -46,14 +46,15 @@ var app = {
     // application title
     app.header.find('li:nth-child(2)').html('<span>' + R.text('appTitle') + '<span>');
 
-    var mainMenu = ['gear'];
+    var mainMenu = ['gear', 'check-square-o'];
+    var btnHandler = function(name) { return function() { app.actionButton(name); }; }
     for(var i = 0; i < mainMenu.length; ++i) {
       var name = mainMenu[i];
       app.header.append(
         $('<li></li>').addClass('x-menu w3-opennav w3-right w3-xlarge')
           .addClass('x-menu-' + name )
           .html('<i class="fa fa-' + name + '" style="padding:14px 10px 10px 10px;"></i>')
-          .on('click', function(){ app.actionButton(name); } )
+          .on('click', btnHandler(name))
         );
     }
 
@@ -64,7 +65,7 @@ var app = {
 
   // returns height of ad's
   getAdHeight: function() {
-    return !app.adShown || isRunningOnBrowser() ? 0 : 50;
+    return !app.adShown || isRunningOnBrowser() ? 0 : admob.getBannerHeight();
   },
 
   getHeaderHeight: function() {

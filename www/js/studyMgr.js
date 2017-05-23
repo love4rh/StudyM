@@ -86,7 +86,7 @@ var contentsMgr = {
   getPageID: function() { return 'contentsMgr'; },
 
   getHeaderInfo: function() {
-    return {'title':this.title, 'mainButton':'back'};
+    return {'title':this.title, 'mainButton':'back', 'menu':{'check-square-o':1}};
   },
 
   isHistoric: function() { return false; },
@@ -178,7 +178,7 @@ var contentsMgr = {
   },
 
   getDisplayLang: function() {
-    const msg = ['None', 'English', 'Korean', 'English & Korean'];
+    var msg = ['None', 'English', 'Korean', 'English & Korean'];
 
     return msg[contentsMgr.langToggle];
   },
@@ -207,5 +207,13 @@ var contentsMgr = {
     contentsMgr.langToggle = v;
     elem.text( contentsMgr.getDisplayLang() );
     contentsMgr.toggleDisplay();
+  },
+
+  actionButton: function(buttonName) {
+    if( 'check-square-o' === buttonName ) {
+      app.showPage(testingMgr,
+        { 'mode':'test', 'language':'korean', 'testList':testMgr._shuffling([contentsMgr.cIdx]) }
+      );
+    }
   }
 };

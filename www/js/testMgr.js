@@ -109,8 +109,7 @@ var testMgr = {
       showToast(R.text('testSelect'));
     } else {
       app.showPage(testingMgr,
-        { 'mode':'test', 'language':(e2k ? 'english' : 'korean'),
-          'testList': $this._shuffling(selList) }
+        { 'mode':'test', 'language':(e2k ? 'english' : 'korean'), 'testList': $this._shuffling(selList) }
       );
     }
   }
